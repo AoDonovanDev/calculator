@@ -22,11 +22,13 @@ div{
     justify-content: right;
     width: 30vw;
     height: 10vh;
+    border-radius: 2px;
     background-color: antiquewhite;
 }
 .input{
     display:flex;
     height: 60vh;
+    border-radius: 2px;
    
 }
 .numButtonsGrid{
@@ -62,4 +64,14 @@ div{
 }
 #multiply{
     background-color: bisque;
+}
+#clearBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+    width: 80vw;
+    height: 6vh;
+    border-radius: 2px;
+    background-color: rgb(51, 43, 43);
 }

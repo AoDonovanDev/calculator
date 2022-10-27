@@ -1,7 +1,7 @@
 let inputString = "";
 let currentVal = 0;
 let storedVal = null;
-let funcVarVal = "addition";
+let funcVarVal = "";
 let reset = false;
 let outputWindow = document.getElementById("output");
 let numBtns = document.querySelectorAll(".numPad");
@@ -11,6 +11,7 @@ document.getElementById("equals").addEventListener("click", operate);
 document.getElementById("subtract").addEventListener("click", minusOp);
 document.getElementById("multiply").addEventListener("click", multiplyOp)
 document.getElementById("divide").addEventListener("click", divideOp);
+document.getElementById("clearBtn").addEventListener("click", clearAll);
 numBtns.forEach(element => element.addEventListener("click", logBtn));
 function keyListen(e){
     console.log(e.code);
@@ -106,6 +107,9 @@ function keyListen(e){
     if(e.code == "NumpadDivide"){
         divideOp();
     }
+    if(e.code == "Space"){
+        clearAll();
+    }
 }
 function logBtn(){
     if(reset == true){
@@ -121,172 +125,105 @@ function logBtn(){
     document.getElementById("output").appendChild(newEntry);
     console.log(inputString);
     currentVal = parseFloat(inputString);
-    this.setAttribute("filter", "opacity(30%)");
 }
 function plusOp(){
-    clearScreen(outputWindow);
-    switch(funcVarVal){
-        case "subtraction":
-            storedVal = storedVal - currentVal;
-            outputWindow.innerHTML = storedVal;
-            currentVal = 0;
-            inputString = ""
-            console.log(storedVal);
-            funcVarVal = "addition";
-            break;
-        case "multiplication":
-            storedVal = storedVal * currentVal;
-            outputWindow.innerHTML = storedVal;
-            currentVal = 0;
-            inputString = "";
-            funcVarVal = "addition";
-            break;
-        case "division":
-            storedVal = storedVal / currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            funcVarVal = "addition";
-        break;
-        default:
-            if(storedVal == null){
-              storedVal = currentVal;
-              inputString = "";
-            }
-         else{
-            operate();
-         }
+    if(storedVal == null){
+        storedVal = currentVal;
+        currentVal = 0;
+        inputString = "";
+        outputWindow.innerHTML = inputString;
     }
-    return reset = false;
+    if(funcVarVal == ""){
+        funcVarVal  = "addition";
+        operate();
+    }
+    else{
+        operate();
+        funcVarVal = "addition";
+    }
 }
 function minusOp(){
-    clearScreen(outputWindow);
-    switch (funcVarVal){
-        case "addition":
-            storedVal = currentVal + storedVal;
-            outputWindow.innerHTML = storedVal;
-            currentVal = 0;
-            console.log(storedVal);
-            inputString = "";
-            funcVarVal = "subtraction";
-            break;
-        case "multiplication":
-            storedVal = storedVal * currentVal;
-            outputWindow.innerHTML = storedVal;
-            currentVal = 0;
-            inputString = "";
-            funcVarVal = "subtraction"
-            break;
-        case "division":
-            storedVal = storedVal / currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            currentVal = 0;
-            inputString = "";
-            funcVarVal = "subtraction";
-        break;
-        default:
-             if (storedVal == null){
-            storedVal = currentVal;
-            inputString = "";
-            }
-         else{
-         operate();
-        }
+    if(storedVal == null){
+        storedVal = currentVal;
+        currentVal = 0;
+        inputString = "";
     } 
-    return reset = false;
+    if(funcVarVal == ""){
+        funcVarVal  = "subtraction";
+        outputWindow.innerHTML = inputString;
+
+    }
+    else{
+        operate();
+        funcVarVal = "subtraction";
+    }
 }
 function multiplyOp(){
-    clearScreen(outputWindow);
-    switch(funcVarVal){
-        case "addition":
-            storedVal = currentVal + storedVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            funcVarVal = "multiplication";
-        break;
-        case "subtraction":
-            storedVal = storedVal - currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = ""
-            funcVarVal = "multiplication";
-            break;
-        case "division":
-            storedVal = storedVal / currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            funcVarVal = "multiplication";
-        break;
-        default:
-            if(storedVal == null){
-                storedVal = currentVal;
-                inputString = "";
-            }
-        else{
-            operate()
-        }
+    if(storedVal == null){
+        storedVal = currentVal;
+        currentVal = 1;
+        inputString = "";
+        outputWindow.innerHTML = inputString;
+    } 
+    if(funcVarVal == ""){
+        funcVarVal  = "multiplication";
     }
-    return reset = false;
-}  
+    else{
+        operate();
+        funcVarVal = "multiplication";
+    }
+}
 function divideOp(){
-    clearScreen(outputWindow);
-    switch(funcVarVal){
-        case "addition":
-            storedVal = currentVal + storedVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            funcVarVal = "division";
-        break;
-        case "subtraction":
-            storedVal = storedVal - currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = ""
-            funcVarVal = "division";
-            break;
-        case "multiplication":
-            storedVal = storedVal * currentVal;
-            outputWindow.innerHTML = storedVal;
-            inputString = "";
-            funcVarVal = "division";
-            break;
-        default:
-            if(storedVal == null){
-                storedVal = currentVal;
-                inputString = "";
-            }
-        else{
-            operate()
-        }
+    if(storedVal == null){
+        storedVal = currentVal;
+        currentVal = 1;
+        inputString = "";
+        outputWindow.innerHTML = inputString;
     }
-    return reset = false;
+    if(funcVarVal == ""){
+        funcVarVal = "division";
+    }
+    else{
+        operate()
+        funcVarVal = "division";
+    }
 }
 function operate(){
     switch (funcVarVal){
         case "addition":
             storedVal = currentVal + storedVal;
             outputWindow.innerHTML = storedVal;
-            currentVal = 0;
             inputString = "";
+            currentVal = 0;
         break;
         case "subtraction":
             storedVal = storedVal - currentVal;
             outputWindow.innerHTML = storedVal;
-            currentVal = 0;
             inputString = "";
+            currentVal = 0;
         break;
         case "multiplication":
             storedVal = storedVal * currentVal;
             outputWindow.innerHTML = storedVal;
-            currentVal = 0;
             inputString = "";
+            currentVal = 1;
         break;
         case "division":
             storedVal = storedVal / currentVal;
             outputWindow.innerHTML = storedVal;
-            inputString = "";
+            inputString = "";  
+            currentVal = 1;
     }
     return reset = true;
 }
-function clearScreen(parent){
+function clearAll(){
+    currentVal = 0;
+    storedVal = null;
+    inputString = "";
+    funcVarVal = "";
+    clearScreen(outputWindow);
+}
+function clearScreen(parent){  
     while(parent.firstChild){
         parent.removeChild(outputWindow.firstChild)
     };
