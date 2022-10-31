@@ -6,6 +6,7 @@ let reset = false;
 let outputWindow = document.getElementById("output");
 let numBtns = document.querySelectorAll(".numPad");
 window.addEventListener("keydown", keyListen);
+window.addEventListener("keyup", keyUnstyle);
 document.getElementById("add").addEventListener("click", plusOp);
 document.getElementById("equals").addEventListener("click", operate);
 document.getElementById("subtract").addEventListener("click", minusOp);
@@ -13,9 +14,17 @@ document.getElementById("multiply").addEventListener("click", multiplyOp)
 document.getElementById("divide").addEventListener("click", divideOp);
 document.getElementById("clearBtn").addEventListener("click", clearAll);
 numBtns.forEach(element => element.addEventListener("click", logBtn));
+function keyUnstyle(e){
+    switch(e.code){
+        case "Numpad1":
+        document.getElementById("oneBtn").classList.remove("btnMagic");
+    break;
+    }
+}
 function keyListen(e){
     console.log(e.code);
     if(e.code == "Numpad1"){
+        document.getElementById("oneBtn").classList.add("btnMagic");
         inputString = inputString + "1";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "1";
@@ -112,12 +121,12 @@ function keyListen(e){
     }
 }
 function logBtn(){
-    if(reset == true){
+    /* if(reset == true){
         inputString = "";
         storedVal = 0;
         currentVal = 0;
         clearScreen(outputWindow);
-    }
+    } */
     let dataNum = this.getAttribute("data-num");
     let newEntry = document.createElement("p");
     inputString = inputString + dataNum;
