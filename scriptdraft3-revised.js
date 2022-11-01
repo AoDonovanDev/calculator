@@ -17,8 +17,58 @@ numBtns.forEach(element => element.addEventListener("click", logBtn));
 function keyUnstyle(e){
     switch(e.code){
         case "Numpad1":
-        document.getElementById("oneBtn").classList.remove("btnMagic");
-    break;
+            document.getElementById("oneBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad2":
+            document.getElementById("twoBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad3":
+            document.getElementById("threeBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad4":
+            document.getElementById("fourBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad5":
+            document.getElementById("fiveBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad6":
+            document.getElementById("sixBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad7":
+            document.getElementById("sevenBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad8":
+            document.getElementById("eightBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad9":
+            document.getElementById("nineBtn").classList.remove("btnMagic");
+        break;
+        case "Numpad0":
+            document.getElementById("zeroBtn").classList.remove("btnMagic");
+        break;
+        case "NumpadDecimal":
+            document.getElementById("decimal").classList.remove("btnMagic");
+        break;
+        case "NumpadEnter":
+            document.getElementById("equals").classList.remove("opsMagic");
+        break;
+        case "NumpadAdd":
+            document.getElementById("add").classList.remove("opsMagic");
+        break;
+        case "NumpadSubtract":
+            document.getElementById("subtract").classList.remove("opsMagic");
+        break;
+        case "NumpadMultiply":
+            document.getElementById("multiply").classList.remove("opsMagic");
+        break;
+        case "NumpadDivide":
+            document.getElementById("divide").classList.remove("opsMagic");
+        break;
+        case "NumpadEnter":
+            document.getElementById("equals").classList.remove("opsMagic");
+        break;
+        case "Space":
+            document.getElementById("clearBtn").classList.remove("opsMagic");
     }
 }
 function keyListen(e){
@@ -32,6 +82,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad2"){
+        document.getElementById("twoBtn").classList.add("btnMagic");
         inputString = inputString + "2";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "2";
@@ -39,6 +90,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad3"){
+        document.getElementById("threeBtn").classList.add("btnMagic");
         inputString = inputString + "3";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "3";
@@ -46,6 +98,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad4"){
+        document.getElementById("fourBtn").classList.add("btnMagic");
         inputString = inputString + "4";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "4";
@@ -53,6 +106,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad5"){
+        document.getElementById("fiveBtn").classList.add("btnMagic");
         inputString = inputString + "5";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "5";
@@ -60,6 +114,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad6"){
+        document.getElementById("sixBtn").classList.add("btnMagic");
         inputString = inputString + "6";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "6";
@@ -67,6 +122,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad7"){
+        document.getElementById("sevenBtn").classList.add("btnMagic");
         inputString = inputString + "7";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "7";
@@ -74,6 +130,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad8"){
+        document.getElementById("eightBtn").classList.add("btnMagic");
         inputString = inputString + "8";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "8";
@@ -81,6 +138,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad9"){
+        document.getElementById("nineBtn").classList.add("btnMagic");
         inputString = inputString + "9";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "9";
@@ -88,6 +146,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "Numpad0"){
+        document.getElementById("zeroBtn").classList.add("btnMagic");
         inputString = inputString + "0";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = "0";
@@ -95,6 +154,7 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "NumpadDecimal"){
+        document.getElementById("decimal").classList.add("btnMagic");
         inputString = inputString + ".";
         let newEntry = document.createElement("p");
         newEntry.innerHTML = ".";
@@ -102,21 +162,27 @@ function keyListen(e){
         currentVal = parseFloat(inputString);
     }
     if(e.code == "NumpadEnter"){
+        document.getElementById("equals").classList.add("opsMagic");
         operate();
     }
     if(e.code == "NumpadAdd"){
+        document.getElementById("add").classList.add("opsMagic");
         plusOp();
     }
     if(e.code == "NumpadMultiply"){
+        document.getElementById("multiply").classList.add("opsMagic");
         multiplyOp();
     }
     if(e.code == "NumpadSubtract"){
+        document.getElementById("subtract").classList.add("opsMagic");
         minusOp();
     }
     if(e.code == "NumpadDivide"){
+        document.getElementById("divide").classList.add("opsMagic");
         divideOp();
     }
     if(e.code == "Space"){
+        document.getElementById("clearBtn").classList.add("opsMagic");
         clearAll();
     }
 }
