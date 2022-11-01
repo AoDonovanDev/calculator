@@ -69,6 +69,9 @@ function keyUnstyle(e){
         break;
         case "Space":
             document.getElementById("clearBtn").classList.remove("opsMagic");
+        break;
+        case "NumLock":
+            document.getElementById("clearBtn").classList.remove("opsMagic");
     }
 }
 function keyListen(e){
@@ -182,6 +185,10 @@ function keyListen(e){
         divideOp();
     }
     if(e.code == "Space"){
+        document.getElementById("clearBtn").classList.add("opsMagic");
+        clearAll();
+    }
+    if(e.code == "NumLock"){
         document.getElementById("clearBtn").classList.add("opsMagic");
         clearAll();
     }
