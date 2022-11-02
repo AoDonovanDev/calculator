@@ -5,3 +5,6 @@ const calculator = ((currentVal, storedVal) => {
     const div = storedVal / currentVal;
     return {add, sub, mult, div}
 })()
+if(storedVal == null){
+    storedVal = currentVal;
+}
